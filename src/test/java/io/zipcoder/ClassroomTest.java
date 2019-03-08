@@ -344,7 +344,7 @@ public class ClassroomTest {
         String expected = "B";
 
         //When
-        String actual = classroom.getGradeBook().get(studentTwo);
+        String actual = classroom.getGradeBook().get(studentNine);
 
         //Then
         Assert.assertEquals(expected,actual);

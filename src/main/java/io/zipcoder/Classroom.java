@@ -1,10 +1,7 @@
 package io.zipcoder;
 
 import java.security.PublicKey;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 class Classroom {
     private int size;
@@ -73,20 +70,21 @@ class Classroom {
 
     }
 
-    public TreeMap<Student,String> getGradeBook() {
-        TreeMap<Student,String> gradebook = new TreeMap<>();
+    public HashMap<Student,String> getGradeBook() {
+        HashMap<Student,String> gradebook = new HashMap<>();
         Student[] studentsByGrade = getStudentsByScore();
         for (int i = 0; i < studentsByGrade.length ; i++) {
-            Double percentile = (double) ((i+1)/studentsByGrade.length);
-            if(percentile <= 10) {
+            double percentile = (((i+1)/(double) studentsByGrade.length)*100);
+            System.out.println(percentile);
+            if(percentile <= 10.0) {
                 gradebook.put(studentsByGrade[i],"A");
-            } else if (percentile >10 && percentile <= 29) {
+            } else if (percentile >10.0 && percentile <= 29.0) {
                 gradebook.put(studentsByGrade[i],"B");
-            } else if (percentile >29 && percentile <= 50) {
+            } else if (percentile >29.0 && percentile <= 50.0) {
                 gradebook.put(studentsByGrade[i],"C");
-            } else if (percentile >51 && percentile <= 89) {
+            } else if (percentile >50.0 && percentile <= 89.0) {
                 gradebook.put(studentsByGrade[i],"D");
-            } else if (percentile >90 && percentile <= 100) {
+            } else if (percentile >89.0 && percentile <= 100.0) {
                 gradebook.put(studentsByGrade[i],"F");
             }
         }
